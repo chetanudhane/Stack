@@ -33,7 +33,7 @@ public class LinkedListExample {
 	}
 
 	public int pop() {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("Stack is Empty");
 			return 0;
 		}
@@ -42,9 +42,26 @@ public class LinkedListExample {
 		return temp.key;
 	}
 
+	public boolean enqueue(final int data) {
+		boolean isAdded = false;
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			isAdded = true;
+		} else {
+			Node temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			isAdded = true;
+		}
+		return isAdded;
+	}
+
 	public void print() {
 		Node temp = head;
-		System.out.println("Stack : ");
+		System.out.println("Queue : ");
 		while (temp != null) {
 			System.out.print(temp.key + " -> ");
 			temp = temp.next;
